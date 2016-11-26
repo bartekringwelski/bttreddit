@@ -17,11 +17,10 @@ app.post('/', function(request, response){
 });
 
 
-var ip = '127.0.0.1';
 var port = 8080;
 
 
-app.listen(port, ip, function(){
+app.listen(port, function(){
   console.log(
   `Listening on:
    port: ${port},
