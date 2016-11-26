@@ -17,8 +17,7 @@ app.post('/', function(request, response){
 });
 
 
-var port = 8080;
-
+port = process.env.PORT || 5000; //
 
 app.listen(port, function(){
   console.log(
