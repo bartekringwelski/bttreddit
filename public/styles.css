@@ -1,0 +1,23 @@
+#logo {
+  width:15%
+}
+
+#footer{
+  background-color: rgb(247, 247, 247);
+  display:flex;
+  list-style: none;
+}
+
+ul {
+  margin-top: 8px;
+  margin-left:128px;
+}
+
+#footer li{
+  display: inline;
+}
+
+#footer-logo {
+  margin-top:10px;
+  width:30%
+}

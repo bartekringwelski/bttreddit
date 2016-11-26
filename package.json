@@ -1,0 +1,13 @@
+{
+  "name": "bttreddit",
+  "version": "1.0.0",
+  "description": "site that shows you old front pages of reddit",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Bartek",
+  "license": "It's all mine"
+}
