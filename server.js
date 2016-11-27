@@ -14,6 +14,11 @@ app.get('/', function(request, response){
   response.render('pages/index');
 });
 
+app.get('/11-22-16', function(request, response){
+
+  response.render('pages/index');
+});
+
 
 app.get('/', function(req, res) {
     var drinks = [

@@ -1,23 +1,59 @@
 #logo {
-  width:15%
+  width:12%;
+  margin:10px;
 }
 
-#footer{
-  background-color: rgb(247, 247, 247);
-  display:flex;
-  list-style: none;
+
+#header {
+  background-color: green;
+
 }
 
-ul {
-  margin-top: 8px;
-  margin-left:128px;
+
+#list-items{
+  margin-left:70px;
+  margin-bottom:30px;
 }
 
 #footer li{
   display: inline;
+  margin-bottom: 50px;
+  align: right;
+  font-size: 1.2em;
+  color:white;
 }
 
+
 #footer-logo {
-  margin-top:10px;
-  width:30%
+  margin:20px 0px 15px 25px;
+  width:25%;
+
+}
+
+#footer{
+  background-color: rgb(70, 71, 71);
+  display:flex;
+  list-style: none;
+}
+
+
+
+/* unvisited link */
+a:link {
+    color: white;
+}
+
+/* visited link */
+a:visited {
+    color: white;
+}
+
+/* mouse over link */
+a:hover {
+    color: white;
+}
+
+/* selected link */
+a:active {
+    color: white;
 }
