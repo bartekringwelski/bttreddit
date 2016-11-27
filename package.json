@@ -9,5 +9,9 @@
   },
   "keywords": [],
   "author": "Bartek",
-  "license": "It's all mine"
+  "license": "It's all mine",
+  "dependencies": {
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
+  }
 }
