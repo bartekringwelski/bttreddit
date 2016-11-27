@@ -5,12 +5,15 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "keywords": [],
   "author": "Bartek",
   "license": "It's all mine",
   "dependencies": {
+    "ejs": "^2.5.2",
+    "express-partials": "^0.3.0",
+    "path": "^0.12.7",
     "react": "^15.4.1",
     "react-dom": "^15.4.1"
   }
