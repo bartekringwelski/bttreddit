@@ -11,14 +11,15 @@ To do:
 ✔ setup git hub repo @done(2016-11-28 00:22)
 ✔ setup express, body parser @done(2016-11-28 00:22)
 ✔ figure out how t @done(2016-11-28 00:22)
+☐ add tag line to logo by splitting up into rows
 
 
 ☐ create real cron job that take snap shot of reddit pages
 ☐ default homepage to current html
 ☐ populate router names and links for last 9 days
-☐ add tag line to logo by splitting up into rows
-☐ buy url 
-☐
+☐ buy url
+☐ add otherwise get to redirect all traffic to reddit.com / whatever.... (exclusing absolute addresses)
+☐ put footer nearer to navigation
 
 
 

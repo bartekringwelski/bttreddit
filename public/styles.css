@@ -1,5 +1,5 @@
 #logo {
-  width:12%;
+  width:50%;
   margin:10px;
 }
 
@@ -9,6 +9,12 @@
 
 }
 
+#logo-content .column{
+  display:inline-block;
+  color:white;
+  vertical-align: middle;
+  border: 1px solid red;
+}
 
 #list-items{
   margin-left:70px;

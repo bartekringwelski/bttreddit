@@ -16,19 +16,21 @@ app.set('view engine', 'ejs');
   var formattedDate = `${1+ date.getMonth()}-${-2+date.getDate()}-${date.getFullYear()}`;
   console.log(formattedDate);
 
+  // general homepage
+  app.get('/', function(request, response) {
+    var url = "../../web/archives/sites/11-27-2016.html";
+
+    response.render('pages/index', {url: url, formattedDate:date});
+  });
+
+
 //find yesterday
 app.get(`/${formattedDate}`, function(request, response) {
    var url = "../../web/archives/sites/11-26-2016.html";
 
-    response.render('pages/index', {url: url});
+    response.render('pages/index', {url: url, formattedDate:formattedDate});
 });
 
-
-app.get('/', function(request, response) {
-   var url = "../../web/archives/sites/11-27-2016.html";
-
-    response.render('pages/index', {url: url});
-});
 
 
 
