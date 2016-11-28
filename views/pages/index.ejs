@@ -9,8 +9,8 @@
     <header>
       <% include ../partials/header %>
     </header>
-<!-- this is where reddit goes -->
-    <% include ../../web/archives/sites/reddit.html %>
+<!-- this is where reddit goes, including dynamic url -->
+    <%- include(url) %>
 
     <% include ../partials/footer %>
 

@@ -4,41 +4,24 @@ var app = express();
 var path = require('path');
 var partials = require('express-partials');
 
-
-
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
-app.get('/', function(request, response){
-
-  response.render('pages/index');
-});
-
-app.get('/11-22-16', function(request, response){
-
-  response.render('pages/index');
-});
 
 
-app.get('/', function(req, res) {
-    var drinks = [
-        { name: 'Bloody Mary', drunkness: 3 },
-        { name: 'Martini', drunkness: 5 },
-        { name: 'Scotch', drunkness: 10 }
-    ];
 
-    res.render('pages/index', {
-        drinks: drinks,
-        tagline: tagline
-    });
+app.get('/11-26-2016', function(request, response) {
+   var url = "../../web/archives/sites/11-26-2016.html";
+
+    response.render('pages/index', {url: url});
 });
 
 
+app.get('/', function(request, response) {
+   var url = "../../web/archives/sites/11-27-2016.html";
 
-
-
-
-
+    response.render('pages/index', {url: url});
+});
 
 
 
