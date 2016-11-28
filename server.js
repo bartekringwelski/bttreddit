@@ -7,10 +7,17 @@ var partials = require('express-partials');
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
+// create module for dates
+  // firure out today's dates
+  // format like xx-xx-xxxx
+  // use template literals
 
+  var date = new Date();
+  var formattedDate = `${1+ date.getMonth()}-${-2+date.getDate()}-${date.getFullYear()}`;
+  console.log(formattedDate);
 
-
-app.get('/11-26-2016', function(request, response) {
+//find yesterday
+app.get(`/${formattedDate}`, function(request, response) {
    var url = "../../web/archives/sites/11-26-2016.html";
 
     response.render('pages/index', {url: url});
@@ -31,7 +38,7 @@ app.post('/', function(request, response){
 });
 
 
-port = process.env.PORT || 5000; //
+port = process.env.PORT || 5001; //
 
 app.listen(port, function(){
   console.log(`Listening on port ${port}`);

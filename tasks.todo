@@ -3,21 +3,30 @@ To do:
 ✔ create logos @done(2016-11-25 16:38)
 
 ---
-☐ look at thigns from web historian sprint
+✔ look at thigns from web historian sprint @done(2016-11-28 00:22)
 ☐ figure out if we want to use a database
     ☐ maybe start with no databse first
-☐ setup heroku server to push to
-☐ Setup UI with window in the middle for reddit content
-☐ setup git hub repo
-☐ setup express, body parser
-☐ figure out how t
+✔ setup heroku server to push to @done(2016-11-28 00:22)
+✔ Setup UI with window in the middle for reddit content @done(2016-11-28 00:22)
+✔ setup git hub repo @done(2016-11-28 00:22)
+✔ setup express, body parser @done(2016-11-28 00:22)
+✔ figure out how t @done(2016-11-28 00:22)
+
+
+☐ create real cron job that take snap shot of reddit pages
+☐ default homepage to current html
+☐ populate router names and links for last 9 days
+☐ add tag line to logo by splitting up into rows
+☐ buy url 
+☐
+
 
 
 personal:
 
-☐ deposts checks
+✔ deposts checks @done(2016-11-28 00:22)
 ☐ get marija's payments in order
 ☐ pay parent's medical bills
-☐ go to trader joes
+✔ go to trader joes @done(2016-11-28 00:22)
 
 ☐ fill out unemployment questionairre
