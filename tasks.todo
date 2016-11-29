@@ -16,14 +16,14 @@ To do:
 ✔ copy cron job data so it doesn't get lost @done(2016-11-28 21:45)
 ✔ run cron job like job to pull html and then serve that shit asap without horrible user experience @done(2016-11-28 21:41)
 ✔ create real cron job that take snap shot of reddit pages @done(2016-11-28 21:41)
+✔ when user does manual refresh, have that manual refresh refresh the whole page... @done(2016-11-28 21:54)
 
 ☐ add loading screen in react
-☐ when user does manual refresh, have that manual refresh refresh the whole page...
 
-☐ 
+☐ setup cron for heroku
 ☐
 
-
+☐ merge over to mongoose database
 
 ☐ populate router names and links for last 9 days
 ☐ buy url
