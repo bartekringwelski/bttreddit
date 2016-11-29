@@ -1,42 +1,63 @@
-var express = require('express');
+/* jshint esversion: 6 */
 
+var express = require('express');
 var app = express();
 var path = require('path');
 var partials = require('express-partials');
+var fs = require('fs');
+var request = require('request');
+var worker = require('./worker_cron_often');
 
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
-// create module for dates
-  // firure out today's dates
-  // format like xx-xx-xxxx
-  // use template literals
-
-  var date = new Date();
-  var formattedDate = `${1+ date.getMonth()}-${-2+date.getDate()}-${date.getFullYear()}`;
-  console.log(formattedDate);
-
-  // general homepage
-  app.get('/', function(request, response) {
-    var url = "../../web/archives/sites/11-27-2016.html";
-
-    response.render('pages/index', {url: url, formattedDate:date});
-  });
 
 
-//find yesterday
-app.get(`/${formattedDate}`, function(request, response) {
-   var url = "../../web/archives/sites/11-26-2016.html";
+//LIVE version (up to 10 minutes old)
 
-    response.render('pages/index', {url: url, formattedDate:formattedDate});
+
+app.get(`/`, function(request, response) {
+  var url = "../../web/archives/sites/reddit.html";
+  response.render('pages/index', {url: url, formattedDate:"Live View"});
 });
 
 
 
+app.get('/refresh', function(req, res) {
 
-app.post('/', function(request, response){
-  response.send("yo from inside post");
-  console.log("hey from inside post response");
+  var url = `../../web/archives/sites/reddit.html`;
+  //worker.downloader();
+
+//HOW DO I REMOVE THIS DUPLICATE FUNCATIONALITY AND RELY ONLY ON THE NEW PAGE??
+  request.get('http://reddit.com')
+    .on('error', function(err){
+      console.log(err);
+    }).pipe(fs.createWriteStream(`/Users/bartekringwelski/Desktop/MKS/1mvp/web/archives/sites/reddit.html`))
+      .on('finish', function(){
+      res.render('pages/index', {url: url, formattedDate:"Live View"});
+    });
+  });
+
+
+
+/////////////////////////daily downloads....
+
+//11-28-16
+app.get(`/11-28-2016`, function(request, response) {
+  var url = "../../web/archives/sites/11-28-2016.html";
+  response.render('pages/index', {url: url, formattedDate: '11-28-2016'});
+});
+
+//11-27-16
+app.get(`/11-27-2016`, function(request, response) {
+  var url = "../../web/archives/sites/11-27-2016.html";
+  response.render('pages/index', {url: url, formattedDate:'11-27-2016'});
+});
+
+//11-26-16
+app.get(`/11-26-2016`, function(request, response) {
+  var url = "../../web/archives/sites/11-26-2016.html";
+  response.render('pages/index', {url: url, formattedDate:'11-26-2016'});
 });
 
 
@@ -45,29 +66,3 @@ port = process.env.PORT || 5001; //
 app.listen(port, function(){
   console.log(`Listening on port ${port}`);
 });
-
-
-
-
-// Code goes here
-
-//
-// var Componentnt=React.createClass({
-//
-//   render:function()
-//   {
-//     var Iframe=this.props.iframe;
-//
-//     return(
-//
-//       <div>
-//
-//        <Iframe src={this.props.src} height={this.props.height} width={this.props.width}/>
-//
-//       </div>
-//       )
-//   }
-// });
-// ReactDOM.render(
-//   <Componentnt iframe='iframe' src="../web/archives/sites/reddit.html" height="500" width="1000"/>,
-//   document.getElementById('app')

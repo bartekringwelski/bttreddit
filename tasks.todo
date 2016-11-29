@@ -11,11 +11,20 @@ To do:
 ✔ setup git hub repo @done(2016-11-28 00:22)
 ✔ setup express, body parser @done(2016-11-28 00:22)
 ✔ figure out how t @done(2016-11-28 00:22)
-☐ add tag line to logo by splitting up into rows
+✔ add tag line to logo by splitting up into rows @done(2016-11-28 19:17)
+✔ default homepage to current html @done(2016-11-28 19:18)
+✔ copy cron job data so it doesn't get lost @done(2016-11-28 21:45)
+✔ run cron job like job to pull html and then serve that shit asap without horrible user experience @done(2016-11-28 21:41)
+✔ create real cron job that take snap shot of reddit pages @done(2016-11-28 21:41)
+
+☐ add loading screen in react
+☐ when user does manual refresh, have that manual refresh refresh the whole page...
+
+☐ 
+☐
 
 
-☐ create real cron job that take snap shot of reddit pages
-☐ default homepage to current html
+
 ☐ populate router names and links for last 9 days
 ☐ buy url
 ☐ add otherwise get to redirect all traffic to reddit.com / whatever.... (exclusing absolute addresses)
