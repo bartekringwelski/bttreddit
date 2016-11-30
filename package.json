@@ -11,13 +11,21 @@
   "author": "Bartek",
   "license": "It's all mine",
   "dependencies": {
+    "browserify-fs": "^1.0.0",
     "ejs": "^2.5.2",
+    "express": "^4.14.0",
     "express-partials": "^0.3.0",
+    "html-to-react": "^1.2.2",
     "mongoose": "^4.7.0",
     "nodemon": "^1.11.0",
     "path": "^0.12.7",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "request": "^2.79.0"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babelify": "^7.3.0"
   }
 }

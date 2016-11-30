@@ -10,7 +10,12 @@ var fs = require('fs');
 var request = require('request');
 var worker = require('./worker_cron_often');
 
+var bodyParser = require('body-parser');
+app.use(bodyParser.text({ type: 'text/html' }));
+
+
 app.use(express.static('public'));
+app.use('/modules', express.static('/node_modules'));
 app.set('view engine', 'ejs');
 port = process.env.PORT || 5001; //
 
@@ -18,47 +23,90 @@ app.listen(port, function(){
   console.log(`Listening on port ${port}`);
 });
 
+
+
+app.get('/populate', function(request, response) {
+
+  fs.readFile('/Users/bartekringwelski/Desktop/MKS/1mvp/web/archives/sites/reddit.html', function (err, data) {
+    if(err) { console.error(err) }
+    console.log('errrr', err);
+    var sitesHTMLdata = Buffer.concat([data]).toString();
+    console.log(sitesHTMLdata);
+    response.send(sitesHTMLdata);
+  });
+
+});
+
+
+
+
+
 //mongo database
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
+// var mongoose = require('mongoose');
+// mongoose.connect('mongodb://localhost/test');
+//
+// var db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', function() {
+//   console.log("connected to freaking mongo db");
+// });
 
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log("connected to freaking mongo db");
-});
-
-// schema properties
-var kittySchema = mongoose.Schema({
-    name: String
-});
-
-//methods for schema
-kittySchema.methods.speak = function () {
-  var greeting = this.name
-    ? "Meow name is " + this.name
-    : "I don't have a name";
-  console.log(greeting);
-}
-
-//intsantiating model
-
-
-var Kitten = mongoose.model('Kitten', kittySchema);
-
-var steveCat = new Kitten({ name: 'steve' });
-console.log(steveCat.name); // 'steve'
-console.log(steveCat.speak()); // 'steve'
+// // schema properties
+// var kittySchema = mongoose.Schema({
+//     name: String
+// });
+//
+// //methods for schema
+// kittySchema.methods.speak = function () {
+//   var greeting = this.name
+//     ? "Meow name is " + this.name
+//     : "I don't have a name";
+//   console.log(greeting);
+// }
+//
+// //intsantiating model
+//
+//
+// var Kitten = mongoose.model('Kitten', kittySchema);
+//
+// var steveCat = new Kitten({ name: 'steve' });
+// console.log(steveCat.name); // 'steve'
+// console.log(steveCat.speak()); // 'steve'
 
 
 //routers
 
 //main route (up to 10 minutes old)
 
-app.get(`/`, function(request, response) {
+//REACT EXPERIMENT
+app.get(`/react`, function(request, response) {
   var url = "../../web/archives/sites/reddit.html";
-  response.render('pages/index', {url: url, formattedDate:"Live View"});
+
+  //fs read file from reddit.html
+  // send response with html database
+  // set state as current pages
+  //
+  // res.send(//)
+  response.sendFile(path.join(__dirname + '/index.html'));
 });
+
+
+
+
+// app.get(`/`, function(request, response) {
+//   var url = "../../web/archives/sites/reddit.html";
+//
+//   //fs read file from reddit.html
+//   // send response with html database
+//   // set state as current pages
+//   //
+//   // res.send(//)
+//
+//
+//
+//   response.sendFile(path.join(__dirname + '/index.html'));
+// //  response.render('pages/index', {url: url, formattedDate:"Live View"});
+// });
 
 
 //refresh router

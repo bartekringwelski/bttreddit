@@ -7,28 +7,31 @@ class Header extends React.Component{
 
   render(){
     var headerStyle = {
-      backgroundColor: "rgb(19, 18, 18)",
+      backgroundColor: "rgba(19, 18, 18, 0.94)",
       padding:"10px",
       color: "white",
-      border: "1px solid red"
     };
 
     var logoColumn = {
       display: "inline-block",
-      verticalAlign: "middle"
-
+      verticalAlign: "middle",
     };
+
+    var imageStyle = {
+      width:"65%"
+    };
+
+
     var statusColumn = {
       display: "inline-block",
       verticalAlign: "middle",
-      border: "1px solid red",
       marginLeft: "30px"
     };
 
     return(
       <div style = {headerStyle}>
         <div style = {logoColumn}>
-          <img src = {this.props.logoTop}/>
+          <img style = {imageStyle} src = {this.props.logoTop}/>
         </div>
         <div style = {statusColumn} >
           View date: {this.props.date}
@@ -66,8 +69,8 @@ class Footer extends React.Component {
   render(){
     // define footer style
     var footerStyle = {
-      padding: "20px 0px 20px 20px",
-      backgroundColor: "rgb(168, 163, 164)"
+      padding: "10px 0px 10px 10px",
+      backgroundColor: "rgb(66, 63, 64)"
     };
     var ulStyle = {
       marginLeft:"70px"
@@ -75,23 +78,25 @@ class Footer extends React.Component {
 
     var liStyle = {
       display: "inline-block",
-      padding: "5"
+      padding: "5",
+      color: "white"
     };
 
-    var logoStyle = {
-      width: "50%"
+    var footerLogoStyle = {
+      width: "40%"
     };
+
     return (
       <div style = {footerStyle}>
         <div>
-          <img style = {logoStyle} src = {this.props.logoBottom}/>
+          <img style = {footerLogoStyle} src = {this.props.logoBottom}/>
         </div>
         <div>
             <ul style= {ulStyle}>
               <li style = {liStyle}>Time travel to:</li>
               {
-                this.props.items.map( (dateText) => (
-                  <li style = {liStyle}><a href = "/#">{dateText}</a></li>
+                this.props.listDates.map( (date) => (
+                  <li style = {liStyle}><a href = {date}>{date}</a></li>
                 ))
               }
             </ul>
@@ -115,7 +120,6 @@ class Main extends React.Component{
   }
 
 componentDidUpdate() {
-  console.log(this.state.redditData.length > 0)
   if(this.state.redditData) {
     $(this.state.redditData).appendTo('#cats')
   }
@@ -127,8 +131,6 @@ componentDidUpdate() {
     .then((response) => {
       return response.text();
     }).then( (redditData) => {
-      console.log('redditData', redditData);
-      console.log(this);
         this.setState({redditData:redditData}) //redditData:redditData
     });
   }
@@ -136,9 +138,9 @@ componentDidUpdate() {
   render(){
     return (
       <div>
-        <Header date = {"Live View"} logoTop = {"public/assets/left_arrow_only_one_line.png"}/>
+        <Header date = {"Live View"} logoTop = {"assets/left_arrow_only_one_line.png"}/>
         <RedditContent redditData = {this.state.redditData}/>
-        <Footer items = {[27, 26, 25]} logoBottom = {"public/assets/one_line.png"} />
+        <Footer listDates = {["11-27-2016", "11-26-2016", "11-25-2016"]} logoBottom = {"assets/one_line.png"} />
       </div>
     )
   }
